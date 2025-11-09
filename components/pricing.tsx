@@ -83,13 +83,13 @@ export default function Pricing() {
               }`}
             >
               {plan.highlight && (
-                <div className="absolute -top-4 left-4 bg-accent text-accent-foreground px-3 py-1 text-xs font-black tracking-widest">
+                <div className="absolute -top-4 left-4 bg-gradient-to-r from-[#C62828] to-[#EB7A3F] text-accent-foreground px-3 py-1 text-xs font-black tracking-widest">
                   BESTSELLER
                 </div>
               )}
 
               <h3 className="text-2xl font-black mb-2 tracking-wider">{plan.name}</h3>
-              <div className="text-4xl font-black mb-6 tracking-tighter text-accent">{plan.price}</div>
+              <div className="text-4xl font-black mb-6 tracking-tighter bg-gradient-to-r from-[#C62828] to-[#EB7A3F] bg-clip-text text-transparent">{plan.price}</div>
 
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature, idx) => (
@@ -107,7 +107,7 @@ export default function Pricing() {
                 }}
                 className={`w-full py-3 font-black tracking-widest transition-all duration-300 border-2 ${
                   plan.highlight
-                    ? "bg-accent text-accent-foreground border-accent hover:bg-accent/90"
+                    ? "bg-gradient-to-r from-[#C62828] to-[#EB7A3F] text-accent-foreground border-transparent hover:opacity-90"
                     : "border-foreground text-foreground hover:bg-foreground hover:text-background"
                 }`}
               >

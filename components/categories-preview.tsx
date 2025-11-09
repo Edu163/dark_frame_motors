@@ -67,7 +67,7 @@ function CategoryCard({
         alt={title}
         fill
         sizes="(min-width: 1024px) 33vw, (min-width: 768px) 33vw, 100vw"
-        className={`object-cover transition-transform duration-300 group-hover:scale-110 transition-opacity ${
+        className={`object-cover transition-transform saturate-0 duration-300 group-hover:scale-110 transition-opacity ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
         onLoad={() => setLoaded(true)}
