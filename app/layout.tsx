@@ -7,9 +7,9 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'Dark Frame Motors',
+  description: 'Dark Frame Motors',
+  generator: 'Dark Frame Motors',
   icons: {
     icon: [
       {
