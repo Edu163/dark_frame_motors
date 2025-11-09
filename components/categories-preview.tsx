@@ -1,5 +1,8 @@
 "use client"
 
+import { useState } from "react"
+import Image from "next/image"
+
 interface CategoriesPreviewProps {
   onSelectCategory: (category: string) => void
 }
@@ -20,30 +23,66 @@ export default function CategoriesPreview({ onSelectCategory }: CategoriesPrevie
         <h3 className="text-4xl font-black mb-12 tracking-tighter">SUMÉRGETE EN NUESTRO MUNDO DE FOTOGRAFÍA</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[420px]">
-          {categories.map((category) => (
-            <button
+          {categories.map((category, idx) => (
+            <CategoryCard
               key={category.id}
               onClick={() => onSelectCategory(category.id)}
-              className={`group relative overflow-hidden transition-all duration-300 cursor-pointer ${category.span}`}
-            >
-              <img
-                src={category.image}
-                alt={category.name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-              {/* Scrim adaptativo */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/60 group-hover:via-black/20 transition-all duration-300"></div>
-              
-              {/* Título */}
-              <div className="absolute bottom-0 left-0 p-6">
-                <h4 className="text-2xl md:text-3xl font-black tracking-wider text-white group-hover:text-[#EB7A3F] group-hover:scale-105 transition-all duration-300 origin-bottom-left">
-                  {category.name}
-                </h4>
-              </div>
-            </button>
+              title={category.name}
+              src={category.image}
+              span={category.span}
+              priority={idx < 3}
+            />
           ))}
         </div>
       </div>
     </section>
+  )
+}
+
+function CategoryCard({
+  src,
+  title,
+  onClick,
+  span,
+  priority = false,
+}: {
+  src: string
+  title: string
+  onClick: () => void
+  span?: string
+  priority?: boolean
+}) {
+  const [loaded, setLoaded] = useState(false)
+
+  return (
+    <button
+      onClick={onClick}
+      className={`group relative overflow-hidden transition-all duration-300 cursor-pointer ${span ?? ""}`}
+    >
+      {/* Reserva de espacio y placeholder */}
+      <div className="absolute inset-0 bg-muted/30" />
+
+      <Image
+        src={src}
+        alt={title}
+        fill
+        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 33vw, 100vw"
+        className={`object-cover transition-transform duration-300 group-hover:scale-110 transition-opacity ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
+        onLoad={() => setLoaded(true)}
+        priority={priority}
+      />
+
+      {/* Scrim adaptativo */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/60 group-hover:via-black/20 transition-all duration-300" />
+
+      {/* Título */}
+      <div className="absolute bottom-0 left-0 p-6">
+        <h4 className="text-2xl md:text-3xl font-black tracking-wider text-white group-hover:text-[#EB7A3F] group-hover:scale-105 transition-all duration-300 origin-bottom-left">
+          {title}
+        </h4>
+      </div>
+    </button>
   )
 }

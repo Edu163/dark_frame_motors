@@ -9,17 +9,19 @@ interface GalleryViewProps {
   onBack: () => void
 }
 
-const galleryImages = {
+type GalleryItem = string | { src: string; ratio?: number }
+
+const galleryImages: Record<string, GalleryItem[]> = {
   motos: [
-    "https://images.unsplash.com/photo-1609630875171-b1321377ee65",
-    "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f",
-    "https://plus.unsplash.com/premium_photo-1661869085660-3252fcd3e505",
-    "https://images.unsplash.com/photo-1572452571879-3d67d5b2a39f",
-    "https://images.unsplash.com/photo-1612387843849-bc3fe8cc9183",
-    "https://images.unsplash.com/photo-1591531851461-fe7a2e8e7c3e",
-    "https://images.unsplash.com/photo-1547054728-fcb8828cc832",
-    "https://plus.unsplash.com/premium_photo-1661897325546-5747eef13150",
-    "https://images.unsplash.com/photo-1611873189125-324514ebd94e",
+    { src: "https://images.unsplash.com/photo-1609630875171-b1321377ee65", ratio: 0.667 },
+    { src: "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f", ratio: 0.667 },
+    { src: "https://plus.unsplash.com/premium_photo-1661869085660-3252fcd3e505", ratio: 0.667 },
+    { src: "https://images.unsplash.com/photo-1572452571879-3d67d5b2a39f", ratio: 0.667 },
+    { src: "https://images.unsplash.com/photo-1612387843849-bc3fe8cc9183", ratio: 0.667 },
+    { src: "https://images.unsplash.com/photo-1591531851461-fe7a2e8e7c3e", ratio: 0.667 },
+    { src: "https://images.unsplash.com/photo-1547054728-fcb8828cc832", ratio: 0.667 },
+    { src: "https://plus.unsplash.com/premium_photo-1661897325546-5747eef13150", ratio: 0.667 },
+    { src: "https://images.unsplash.com/photo-1611873189125-324514ebd94e", ratio: 0.667 },
   ],
   carros: [
     "street%20car%20photography%20black%20night",
@@ -79,7 +81,8 @@ const galleryImages = {
 }
 
 export default function GalleryView({ category, onBack }: GalleryViewProps) {
-  const images = galleryImages[category as keyof typeof galleryImages] || []
+  const raw = galleryImages[category as keyof typeof galleryImages] || []
+  const images = raw.map((it) => (typeof it === 'string' ? { src: `https://source.unsplash.com/featured/?${it}` } : it))
 
   return (
     <section className="min-h-screen pt-32 pb-12 px-6">
@@ -102,8 +105,8 @@ export default function GalleryView({ category, onBack }: GalleryViewProps) {
 
         {/* Masonry style using CSS Columns */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
-          {images.map((src, idx) => (
-            <MasonryItem key={idx} src={src} alt={`Gallery ${idx}`} />
+          {images.map((item, idx) => (
+            <MasonryItem key={idx} src={item.src} presetRatio={item.ratio} alt={`Gallery ${idx}`} />
           ))}
         </div>
       </div>
@@ -111,24 +114,32 @@ export default function GalleryView({ category, onBack }: GalleryViewProps) {
   )
 }
 
-function MasonryItem({ src, alt }: { src: string; alt: string }) {
-  const [ratio, setRatio] = useState(1) // height / width
+function MasonryItem({ src, alt, presetRatio }: { src: string; alt: string; presetRatio?: number }) {
+  // Start with preset ratio if provided to avoid layout shift
+  const [ratio, setRatio] = useState(presetRatio ?? 0.66) // height / width (aprox 3:2)
+  const [loaded, setLoaded] = useState(false)
 
   return (
     <div className="mb-4 break-inside-avoid rounded-lg overflow-hidden">
-      <div className="relative w-full" style={{ paddingBottom: `${ratio * 100}%` }}>
+      <div
+        className="relative w-full bg-muted/30"
+        style={{ paddingBottom: `${ratio * 100}%` }}
+      >
         <Image
           src={src}
           alt={alt}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          className="object-cover transition-transform duration-300 hover:scale-[1.02]"
-          onLoadingComplete={(img) => {
-            if (img.naturalWidth > 0) {
-              setRatio(img.naturalHeight / img.naturalWidth)
+          className={`object-cover transition-transform duration-300 hover:scale-[1.02] transition-opacity ${
+            loaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoad={(e) => {
+            const el = e.currentTarget as HTMLImageElement
+            if (el.naturalWidth > 0) {
+              setRatio(el.naturalHeight / el.naturalWidth)
             }
+            setLoaded(true)
           }}
-          unoptimized
         />
       </div>
     </div>

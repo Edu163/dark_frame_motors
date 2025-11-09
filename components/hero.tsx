@@ -11,7 +11,7 @@
               src="/aston-martin.jpg"
               alt="Dark street car photography"
               fill
-              className="object-cover filter saturate-40 contrast-110 brightness-50"
+              className="object-cover filter saturate-20 contrast-110 brightness-50"
               sizes="50vw"
               priority
             />
@@ -34,7 +34,7 @@
               src="/motorcycle-street-photography-urban-speed.jpg"
               alt="Motorcycle street photography"
               fill
-              className="object-cover filter saturate-40 contrast-110 brightness-50"
+              className="object-cover filter saturate-20 contrast-110 brightness-50"
               sizes="50vw"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-black/25 via-black/10 to-transparent"></div>
@@ -53,7 +53,7 @@
       </div>
 
       <div className="relative z-10 text-center space-y-6 px-6">
-        <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-none text-zinc-50">DARK FRAME</h1>
+        <h1 className="text-grain-white text-7xl md:text-9xl font-black tracking-tighter leading-none text-zinc-50">DARK FRAME</h1>
         <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-none text-[#EB7A3F]">MOTORS</h1>
         <p className="text-lg md:text-2xl text-gray-200 tracking-wide max-w-2xl mx-auto font-bold">
           CAPTURAMOS LA ESENCIA SALVAJE DEL ASFALTO
