@@ -1,0 +1,49 @@
+"use client"
+
+interface CategoriesPreviewProps {
+  onSelectCategory: (category: string) => void
+}
+
+const categories = [
+  { id: "motos", name: "MOTOS", image: "https://images.unsplash.com/photo-1609630875171-b1321377ee65", span: "md:col-span-1 md:row-span-1" },
+  { id: "carros", name: "AUTOS", image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae", span: "md:col-span-2 md:row-span-1" },
+  { id: "pilotos", name: "PILOTOS", image: "https://images.unsplash.com/photo-1761942943730-c31590bb5c1b", span: "md:col-span-1 md:row-span-1" },
+  { id: "pistas", name: "PISTAS", image: "https://images.unsplash.com/photo-1668081366272-6fd6c6ecdff0", span: "md:col-span-2 md:row-span-1" },
+  { id: "noche", name: "NOCHE", image: "https://images.unsplash.com/photo-1605088672785-268db2878f3c", span: "md:col-span-2 md:row-span-1" },
+  { id: "dia", name: "DÍA", image: "https://images.unsplash.com/photo-1612076815324-b4770e61c856", span: "md:col-span-1 md:row-span-1" },
+]
+
+export default function CategoriesPreview({ onSelectCategory }: CategoriesPreviewProps) {
+  return (
+    <section className="py-20 px-6 bg-card">
+      <div className="max-w-7xl mx-auto">
+        <h3 className="text-4xl font-black mb-12 tracking-tighter">SUMÉRGETE EN NUESTRO MUNDO DE FOTOGRAFÍA</h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[420px]">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => onSelectCategory(category.id)}
+              className={`group relative overflow-hidden transition-all duration-300 cursor-pointer ${category.span}`}
+            >
+              <img
+                src={category.image}
+                alt={category.name}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              {/* Scrim adaptativo */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/60 group-hover:via-black/20 transition-all duration-300"></div>
+              
+              {/* Título */}
+              <div className="absolute bottom-0 left-0 p-6">
+                <h4 className="text-2xl md:text-3xl font-black tracking-wider text-white group-hover:text-[#EB7A3F] group-hover:scale-105 transition-all duration-300 origin-bottom-left">
+                  {category.name}
+                </h4>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
