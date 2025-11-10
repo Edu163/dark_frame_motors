@@ -14,6 +14,7 @@
               className="object-cover filter saturate-0 contrast-110 brightness-50"
               sizes="50vw"
               priority
+              quality={90}
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/25 via-black/10 to-transparent"></div>
             <div
@@ -36,6 +37,8 @@
               fill
               className="object-cover filter saturate-0 contrast-110 brightness-50"
               sizes="50vw"
+              priority
+              quality={90}
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-black/25 via-black/10 to-transparent"></div>
             <div
