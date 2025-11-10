@@ -8,12 +8,9 @@ interface CategoriesPreviewProps {
 }
 
 const categories = [
+  { id: "carros", name: "AUTOS", image: "/autos.jpg", span: "md:col-span-1 md:row-span-1" },
   { id: "motos", name: "MOTOS", image: "https://images.unsplash.com/photo-1609630875171-b1321377ee65", span: "md:col-span-1 md:row-span-1" },
-  { id: "carros", name: "AUTOS", image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae", span: "md:col-span-2 md:row-span-1" },
   { id: "pilotos", name: "PILOTOS", image: "https://images.unsplash.com/photo-1761942943730-c31590bb5c1b", span: "md:col-span-1 md:row-span-1" },
-  { id: "pistas", name: "PISTAS", image: "https://images.unsplash.com/photo-1668081366272-6fd6c6ecdff0", span: "md:col-span-2 md:row-span-1" },
-  { id: "noche", name: "NOCHE", image: "https://images.unsplash.com/photo-1605088672785-268db2878f3c", span: "md:col-span-2 md:row-span-1" },
-  { id: "dia", name: "DÍA", image: "https://images.unsplash.com/photo-1612076815324-b4770e61c856", span: "md:col-span-1 md:row-span-1" },
 ]
 
 export default function CategoriesPreview({ onSelectCategory }: CategoriesPreviewProps) {
@@ -79,7 +76,7 @@ function CategoryCard({
 
       {/* Título */}
       <div className="absolute bottom-0 left-0 p-6">
-        <h4 className="text-2xl md:text-3xl font-black tracking-wider text-white group-hover:text-[#EB7A3F] group-hover:scale-105 transition-all duration-300 origin-bottom-left">
+        <h4 className="text-2xl md:text-3xl font-black tracking-wider text-white group-hover:bg-gradient-to-r group-hover:from-[#C62828] group-hover:to-[#EB7A3F] group-hover:bg-clip-text group-hover:text-transparent group-hover:scale-105 transition-all duration-300 origin-bottom-left">
           {title}
         </h4>
       </div>

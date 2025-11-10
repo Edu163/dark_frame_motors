@@ -31,7 +31,7 @@
           {/* Right Image */}
           <div className="relative h-full overflow-hidden">
             <Image
-              src="/motorcycle-street-photography-urban-speed.jpg"
+              src="/moto-speed.jpg"
               alt="Motorcycle street photography"
               fill
               className="object-cover filter saturate-0 contrast-110 brightness-50"

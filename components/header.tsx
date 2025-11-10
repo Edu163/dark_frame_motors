@@ -9,10 +9,10 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur">
       <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-        <div className="flex-1">
-          <h1 className="text-4xl font-black tracking-tighter text-primary">DFM</h1>
+        <a href="/" className="flex-1 cursor-pointer group">
+          <h1 className="text-4xl font-black tracking-tighter text-primary group-hover:text-accent transition">DFM</h1>
           <p className="text-xs text-muted-foreground tracking-widest mt-1">DARK FRAME MOTORS</p>
-        </div>
+        </a>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-12">

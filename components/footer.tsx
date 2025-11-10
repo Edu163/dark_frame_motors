@@ -1,6 +1,6 @@
 "use client"
 
-import { Instagram, Mail, Phone } from "lucide-react"
+import { Instagram, Mail } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -44,17 +44,14 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="font-black text-sm mb-4 tracking-widest">CONTACTO</h4>
-            <div className="flex items-center gap-2 mb-3 text-sm">
-              <Phone size={16} className="text-accent" />
-              <span className="text-muted-foreground">+57 300 123 45 67</span>
-            </div>
             <div className="flex items-center gap-2 mb-4 text-sm">
               <Mail size={16} className="text-accent" />
               <span className="text-muted-foreground">info@darkframemotors.com</span>
             </div>
-            <div className="flex gap-4">
-              <a href="#" className="text-accent hover:text-foreground transition">
+            <div className="flex items-center gap-2 mb-4 text-sm">
+              <a href="https://www.instagram.com/darkframe.motors" className="flex items-center gap-2 text-accent hover:text-foreground transition">
                 <Instagram size={20} />
+                <span className="text-muted-foreground">Dark Frame Motors Instagram</span>
               </a>
             </div>
           </div>

@@ -5,7 +5,7 @@ import Header from "@/components/header"
 import Hero from "@/components/hero"
 import CategoriesPreview from "@/components/categories-preview"
 import GalleryView from "@/components/gallery-view"
-import Pricing from "@/components/pricing"
+import CTABooking from "@/components/cta-booking"
 import Footer from "@/components/footer"
 
 export default function Home() {
@@ -19,12 +19,12 @@ export default function Home() {
       {!selectedCategory ? (
         <>
           <CategoriesPreview onSelectCategory={setSelectedCategory} />
-          <Pricing />
         </>
       ) : (
         <GalleryView category={selectedCategory} onBack={() => setSelectedCategory(null)} />
       )}
 
+      <CTABooking />
       <Footer />
     </main>
   )
