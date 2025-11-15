@@ -52,7 +52,7 @@ export default function Header() {
         <a href="/" className="flex-1 cursor-pointer group inline-flex items-center">
           <Image
             src="/header-image.png"
-            alt="Dark Frame Motors"
+            alt="DarkFrame Motors"
             width={400}
             height={100}
             className="h-14 md:h-16 w-auto object-contain transition group-hover:opacity-80"

@@ -57,10 +57,10 @@
       </div>
 
       <div className="relative z-10 text-center space-y-1 px-6">
-        <h1 className="relative z-10 text-7xl md:text-9xl tracking-tighter leading-none text-zinc-50">
-          <span className={distillery.className}>DARK FRAME</span>
+        <h1 className="relative z-10 text-5xl sm:text-6xl md:text-9xl tracking-tighter leading-none text-zinc-50">
+          <span className={distillery.className}>DARKFRAME</span>
         </h1>
-        <h1 className="relative z-20 text-7xl md:text-[10rem] tracking-tighter leading-none -mt-10 md:-mt-20 bg-gradient-to-r from-[#C62828] to-[#EB7A3F] bg-clip-text text-transparent">
+        <h1 className="relative z-20 text-5xl sm:text-6xl md:text-[10rem] tracking-tighter leading-none -mt-8 md:-mt-20 bg-gradient-to-r from-[#C62828] to-[#EB7A3F] bg-clip-text text-transparent">
           <span className={moontime.className}>Motors</span>
         </h1>
         <p className="text-lg md:text-2xl text-gray-200 tracking-wide max-w-2xl mx-auto font-bold">
