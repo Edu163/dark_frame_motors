@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 // Categorías estáticas (mismas que categories-preview.tsx)
 const categories = [
   { id: "cars", name: "CARS", image: "/autos.png", span: "md:col-span-1 md:row-span-1" },
-  { id: "riders-drivers", name: "RIDERS/DRIVERS", image: "/pilotos.png", span: "md:col-span-1 md:row-span-1" },
+  { id: "bikers-drivers", name: "BIKERS/DRIVERS", image: "/pilotos.png", span: "md:col-span-1 md:row-span-1" },
   { id: "riders", name: "RIDERS", image: "/motos.png", span: "md:col-span-1 md:row-span-1" },
 ];
 
