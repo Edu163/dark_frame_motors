@@ -6,9 +6,9 @@ import { useRouter } from "next/navigation";
 
 // Categorías estáticas (mismas que categories-preview.tsx)
 const categories = [
-  { id: "autos", name: "AUTOS", image: "/autos.jpg", span: "md:col-span-1 md:row-span-1" },
-  { id: "motos", name: "MOTOS", image: "https://images.unsplash.com/photo-1609630875171-b1321377ee65", span: "md:col-span-1 md:row-span-1" },
-  { id: "pilotos", name: "PILOTOS", image: "https://images.unsplash.com/photo-1761942943730-c31590bb5c1b", span: "md:col-span-1 md:row-span-1" },
+  { id: "cars", name: "CARS", image: "/autos.png", span: "md:col-span-1 md:row-span-1" },
+  { id: "riders-drivers", name: "RIDERS/DRIVERS", image: "/pilotos.png", span: "md:col-span-1 md:row-span-1" },
+  { id: "riders", name: "RIDERS", image: "/motos.png", span: "md:col-span-1 md:row-span-1" },
 ];
 
 export default function CategoriesPreviewStrapi() {

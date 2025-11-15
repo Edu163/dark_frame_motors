@@ -1,4 +1,5 @@
  import Image from 'next/image'
+ import { distillery, moontime } from '@/app/fonts'
  
  export default function Hero() {
   return (
@@ -35,7 +36,7 @@
               src="/moto-speed.jpg"
               alt="Motorcycle street photography"
               fill
-              className="object-cover filter saturate-0 contrast-110 brightness-50"
+              className="object-cover filter saturate-0 contrast-110 brightness-40"
               sizes="50vw"
               priority
               quality={90}
@@ -55,11 +56,15 @@
         </div>
       </div>
 
-      <div className="relative z-10 text-center space-y-6 px-6">
-        <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-none text-zinc-50">DARK FRAME</h1>
-        <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-none bg-gradient-to-r from-[#C62828] to-[#EB7A3F] bg-clip-text text-transparent">MOTORS</h1>
+      <div className="relative z-10 text-center space-y-1 px-6">
+        <h1 className="text-7xl md:text-9xl tracking-tighter leading-none text-zinc-50">
+          <span className={distillery.className}>DARK FRAME</span>
+        </h1>
+        <h1 className="text-7xl md:text-[10rem] tracking-tighter leading-none -mt-4 bg-gradient-to-r from-[#C62828] to-[#EB7A3F] bg-clip-text text-transparent">
+          <span className={moontime.className}>Motors</span>
+        </h1>
         <p className="text-lg md:text-2xl text-gray-200 tracking-wide max-w-2xl mx-auto font-bold">
-          CAPTURAMOS LA ESENCIA SALVAJE DEL ASFALTO
+          CAPTURANDO LA ESCENCIA SALVAJE DEL ASFALTO
         </p>
       </div>
     </section>

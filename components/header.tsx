@@ -3,6 +3,7 @@
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 import { useRouter, usePathname } from "next/navigation"
+import Image from "next/image"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -48,9 +49,15 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur">
       <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-        <a href="/" className="flex-1 cursor-pointer group">
-          <h1 className="text-4xl font-black tracking-tighter text-primary group-hover:text-accent transition">DFM</h1>
-          <p className="text-xs text-muted-foreground tracking-widest mt-1">DARK FRAME MOTORS</p>
+        <a href="/" className="flex-1 cursor-pointer group inline-flex items-center">
+          <Image
+            src="/header-image.png"
+            alt="Dark Frame Motors"
+            width={400}
+            height={100}
+            className="h-14 md:h-16 w-auto object-contain transition group-hover:opacity-80"
+            priority
+          />
         </a>
 
         {/* Desktop Nav */}

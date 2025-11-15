@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-black mb-2 tracking-tighter">DFM</h3>
             <p className="text-xs text-muted-foreground tracking-widest">DARK FRAME MOTORS</p>
-            <p className="text-sm text-muted-foreground mt-4">Capturando la esencia del asfalto</p>
+            <p className="text-sm text-muted-foreground mt-4">Capturando la esencia salvaje del asfalto</p>
           </div>
 
           {/* Quick Links */}
