@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Dark Frame Motors',
   description: 'Dark Frame Motors',
   generator: 'Dark Frame Motors',
+  verification: {
+    google: 'D7_F_kwv9IhlE5HzaUvqhnctC4N8gO6tjDDyYp-woJQ',
+  },
   // icons: {
   //   icon: [
   //     {
