@@ -1,6 +1,7 @@
 "use client"
 
 import { Instagram, Mail } from "lucide-react"
+import Image from "next/image"
 
 export default function Footer() {
   return (
@@ -9,8 +10,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-black mb-2 tracking-tighter">DFM</h3>
-            <p className="text-xs text-muted-foreground tracking-widest">DARK FRAME MOTORS</p>
+            <div className="inline-flex items-center">
+              <Image
+                src="/header-image.png"
+                alt="Dark Frame Motors"
+                width={460}
+                height={115}
+                className="h-16 md:h-20 w-auto object-contain"
+                priority
+              />
+            </div>
             <p className="text-sm text-muted-foreground mt-4">Capturando la esencia salvaje del asfalto</p>
           </div>
 
