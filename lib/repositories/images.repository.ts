@@ -17,7 +17,7 @@ export class ImagesRepository {
    */
   async getAllImages(): Promise<StrapiImagesResponse> {
     try {
-      const response = await fetch(`${this.baseUrl}/images?populate=*`, {
+      const response = await fetch(`${this.baseUrl}/images?populate=*&pagination[pageSize]=100`, {
         next: {
           tags: ["images"],
         },
